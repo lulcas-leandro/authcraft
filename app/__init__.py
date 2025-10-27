@@ -7,8 +7,9 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 migrate = Migrate()
 login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
-login_manager.login_message = 'Por favor, faça login para acessar esta página'
+login_manager.login_view = "auth.login"
+login_manager.login_message = "Por favor, faça login para acessar esta página"
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -18,13 +19,13 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     login_manager.init_app(app)
     register_blueprints(app)
-    
+
     return app
+
 
 def register_blueprints(app):
     from app.auth import auth_bp
     from app.main import main_bp
 
-    app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(main_bp)
-    

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - AuthCraft{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Dashboard</h1>
+        <p class="lead">Olá, {{ current_user.name }}!</p>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Informações da Conta</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Nome:</strong> {{ current_user.name }}</li>
+                    <li class="list-group-item"><strong>Usuário:</strong> {{ current_user.username }}</li>
+                    <li class="list-group-item"><strong>Email:</strong> {{ current_user.email }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
