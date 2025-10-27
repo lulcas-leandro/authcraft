@@ -22,10 +22,9 @@ def create_app(config_class=Config):
     return app
 
 def register_blueprints(app):
-    try:
-        from app.auth import auth_bp
-        app.register_blueprint(auth_bp, url_prefix='/auth')
-        print('Blueprint auth registrado com sucesso!')
+    from app.auth import auth_bp
+    from app.main import main_bp
 
-    except Exception as e:
-        print(f'Blueprint auth não foi registrado, erro: {e}')
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(main_bp)
+    
